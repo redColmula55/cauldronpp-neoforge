@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "cppcauldron",
+  "key": {
+    "a": "minecraft:iron_ingot",
+    "b": "minecraft:brewing_stand"
+  },
+  "pattern": [
+    "a a",
+    "aba",
+    "aaa"
+  ],
+  "result": {
+    "id": "cauldronpp:cauldron"
+  }
+}
