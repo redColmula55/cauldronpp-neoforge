@@ -5,7 +5,6 @@ import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -23,6 +22,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.RegisterEvent;
 import org.jetbrains.annotations.NotNull;
 import rc55.mc.cauldronpp.Cauldronpp;
 import rc55.mc.cauldronpp.api.PotionHelper;
@@ -49,7 +49,7 @@ public class CauldronppItems {
     public static void init(IEventBus eventBus) {
         FORGE_REGISTRY.register(eventBus);
         eventBus.addListener(CauldronppItems::addItemToGroup);
-        //regItemDispenserBehavior();
+        eventBus.addListener(CauldronppItems::regItemDispenserBehavior);
         Cauldronpp.LOGGER.info("Cauldron++ items registered.");
     }
     
@@ -81,7 +81,9 @@ public class CauldronppItems {
         }
     }
 
-    private static void regItemDispenserBehavior() {
+    @SubscribeEvent
+    private static void regItemDispenserBehavior(RegisterEvent event) {
+        if (!Registries.ITEM.equals(event.getRegistryKey())) return;
         DispenserBlock.registerBehavior(WATER_BOTTLE, new DefaultDispenseItemBehavior() {
             private final DefaultDispenseItemBehavior fallbackBehavior = new DefaultDispenseItemBehavior();
 
