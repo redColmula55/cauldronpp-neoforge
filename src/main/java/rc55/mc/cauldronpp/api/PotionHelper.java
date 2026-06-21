@@ -363,8 +363,14 @@ public class PotionHelper {
 
         return potionData;
     }
+
+    private static final List<MobEffectInstance>[] effectsListCache = new List[32768];
+
     //获取对应药水的所有效果
     public static List<MobEffectInstance> getEffects(int potionData) {
+        if (effectsListCache[potionData & 32767] != null) {
+            return effectsListCache[potionData & 32767];
+        }
         ArrayList<MobEffectInstance> effects = new ArrayList<>();
         for (MobEffect effect : BuiltInRegistries.MOB_EFFECT) {
             DataResult<Holder<MobEffect>> dataResult = MobEffect.CODEC.parse(JavaOps.INSTANCE, Objects.requireNonNull(BuiltInRegistries.MOB_EFFECT.getKey(effect)).toString());
@@ -399,6 +405,7 @@ public class PotionHelper {
             }
         }
 
+        effectsListCache[potionData & 32767] = List.copyOf(effects);
         return effects;
     }
     //药水名字

@@ -59,16 +59,16 @@ public class CauldronppItems {
             event.accept(WATER_BOTTLE);
             event.accept(PotionHelper.getPotionItem(PotionHelper.DEFAULT_TYPE, 32767));
             event.accept(PotionHelper.getPotionItem(PotionHelper.DEFAULT_TYPE, 16123));
-            event.accept(PotionHelper.getPotionItem(PotionHelper.DEFAULT_TYPE, 81621));
-            event.accept(PotionHelper.getPotionItem(PotionHelper.DEFAULT_TYPE, 55577));
+            event.accept(PotionHelper.getPotionItem(PotionHelper.DEFAULT_TYPE, 16085));
+            event.accept(PotionHelper.getPotionItem(PotionHelper.DEFAULT_TYPE, 22809));
             event.accept(PotionHelper.getPotionItem(PotionHelper.SPLASH_TYPE, 32767));
             event.accept(PotionHelper.getPotionItem(PotionHelper.SPLASH_TYPE, 16123));
-            event.accept(PotionHelper.getPotionItem(PotionHelper.SPLASH_TYPE, 81621));
-            event.accept(PotionHelper.getPotionItem(PotionHelper.SPLASH_TYPE, 55577));
+            event.accept(PotionHelper.getPotionItem(PotionHelper.SPLASH_TYPE, 16085));
+            event.accept(PotionHelper.getPotionItem(PotionHelper.SPLASH_TYPE, 22809));
             event.accept(PotionHelper.getPotionItem(PotionHelper.LINGERING_TYPE, 32767));
             event.accept(PotionHelper.getPotionItem(PotionHelper.LINGERING_TYPE, 16123));
-            event.accept(PotionHelper.getPotionItem(PotionHelper.LINGERING_TYPE, 81621));
-            event.accept(PotionHelper.getPotionItem(PotionHelper.LINGERING_TYPE, 55577));
+            event.accept(PotionHelper.getPotionItem(PotionHelper.LINGERING_TYPE, 16085));
+            event.accept(PotionHelper.getPotionItem(PotionHelper.LINGERING_TYPE, 22809));
         }
         if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS || event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
             event.accept(CauldronppBlocks.CPP_CAULDRON);
@@ -76,8 +76,8 @@ public class CauldronppItems {
         if (event.getTabKey() == CreativeModeTabs.COMBAT) {
             event.accept(PotionHelper.getPotionItem(PotionHelper.ARROW_TYPE, 32767));
             event.accept(PotionHelper.getPotionItem(PotionHelper.ARROW_TYPE, 16123));
-            event.accept(PotionHelper.getPotionItem(PotionHelper.ARROW_TYPE, 81621));
-            event.accept(PotionHelper.getPotionItem(PotionHelper.ARROW_TYPE, 55577));
+            event.accept(PotionHelper.getPotionItem(PotionHelper.ARROW_TYPE, 16085));
+            event.accept(PotionHelper.getPotionItem(PotionHelper.ARROW_TYPE, 22809));
         }
     }
 

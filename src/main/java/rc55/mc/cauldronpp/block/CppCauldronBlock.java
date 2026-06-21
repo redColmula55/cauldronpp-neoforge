@@ -3,10 +3,8 @@ package rc55.mc.cauldronpp.block;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -38,6 +36,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 import rc55.mc.cauldronpp.api.CppCauldronBehavior;
 import rc55.mc.cauldronpp.api.CppCauldronLiquidType;
+import rc55.mc.cauldronpp.api.PotionHelper;
 import rc55.mc.cauldronpp.blockEntity.CauldronppBlockEntityTypes;
 import rc55.mc.cauldronpp.blockEntity.CppCauldronBlockEntity;
 
@@ -158,6 +157,13 @@ public class CppCauldronBlock extends BaseEntityBlock {
                                     world.sendBlockUpdated(pos, state, state, Block.UPDATE_ALL);
                                     world.updateNeighbourForOutputSignal(pos, this);
                                 }
+                            }
+                        }
+                    }
+                    case POTION -> {
+                        if (entity instanceof LivingEntity livingEntity) {
+                            for (final var effect : PotionHelper.getEffects(cauldron.getLiquidData())) {
+                                livingEntity.addEffect(effect.withScaledDuration(0.01f));
                             }
                         }
                     }
